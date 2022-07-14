@@ -1,4 +1,4 @@
-import {Box, Button, HStack, Text, Flex, Link} from "@chakra-ui/react";
+import {Box, HStack, Text, Flex, Link} from "@chakra-ui/react";
 import MyButton from "../button";
 import NextLink from "next/link";
 import {useSession, signOut} from "next-auth/react";
@@ -19,6 +19,7 @@ function Navigation() {
             </Text>
           </Link>
         </NextLink>
+        <Link></Link>
         <Flex>
           {session && (
             <NextLink href="/products">
@@ -65,7 +66,7 @@ function Navigation() {
               </NextLink>
               <Link>
                 <Text
-                  ml="45vH"
+                  ml="33vH"
                   onClick={onLogoutClick}
                   my={7}
                   fontSize="lg"
@@ -74,6 +75,9 @@ function Navigation() {
                   Logout
                 </Text>
               </Link>
+              <Text mx="6" fontSize="lg" color="blue.300" my={7}>
+                {session?.user.username}
+              </Text>
             </>
           )}
         </Flex>
