@@ -35,7 +35,7 @@ function Navigation() {
               <NextLink href="/login">
                 <Link>
                   <Text
-                    ml="75vH"
+                    ml="74vH"
                     mr="3"
                     fontSize="lg"
                     color="blue.300"
@@ -75,9 +75,13 @@ function Navigation() {
                   Logout
                 </Text>
               </Link>
-              <Text mx="6" fontSize="lg" color="blue.300" my={7}>
-                {session?.user.username}
-              </Text>
+              <NextLink href="/profile">
+                <Link>
+                  <Text mx="6" fontSize="lg" color="blue.300" my={7}>
+                    {session?.user.username}
+                  </Text>
+                </Link>
+              </NextLink>
             </>
           )}
         </Flex>
