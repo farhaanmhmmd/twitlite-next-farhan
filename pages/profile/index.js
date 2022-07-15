@@ -13,7 +13,7 @@ function Profile(props) {
 
   const onFileChange = (event) => {
     setAvatar(event.target.files[0]);
-    setimgSource(URL.createObjectURL(event.target.files[0]));
+    setimgSource(URL.ObjectURL(event.target.files[0]));
   };
 
   const onSaveButton = async () => {
