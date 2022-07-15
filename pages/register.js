@@ -6,9 +6,11 @@ function Register() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isRegisterProcess, setisRegisterProcess] = useState(false);
 
   const onRegisterClick = async () => {
     try {
+      setisRegisterProcess(true);
       const body = {
         username,
         email,
@@ -17,7 +19,11 @@ function Register() {
       const res = await axiosInstance.post("/users", body);
       alert(res.data.message);
     } catch (error) {
+      console.log({error});
       alert(error.response.data.message);
+    } finally {
+      // akan dijalankan di akhir, terlepas proses di try berhasil ataupun gagal lalu masuk ke catch
+      setisRegisterProcess(false);
     }
   };
 
@@ -50,7 +56,11 @@ function Register() {
           onChange={(event) => setPassword(event.target.value)}
         />
 
-        <Button colorScheme="teal" onClick={onRegisterClick}>
+        <Button
+          isLoading={isRegisterProcess}
+          colorScheme="teal"
+          onClick={onRegisterClick}
+        >
           Register
         </Button>
       </Flex>

@@ -7,8 +7,10 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
+  const [isRegisterProcess, setisRegisterProcess] = useState(false);
 
   const onLoginClick = async () => {
+    setisRegisterProcess(true);
     const res = await signIn("credentials", {
       redirect: false,
       email,
@@ -19,8 +21,8 @@ function Login() {
       router.replace("/");
     } else {
       alert(res.error);
-      console.log({error: res.error});
     }
+    setisRegisterProcess(false);
   };
 
   return (
@@ -44,7 +46,11 @@ function Login() {
           onChange={(event) => setPassword(event.target.value)}
         />
 
-        <Button colorScheme="teal" onClick={onLoginClick}>
+        <Button
+          isLoading={isRegisterProcess}
+          colorScheme="teal"
+          onClick={onLoginClick}
+        >
           Login
         </Button>
       </Flex>
