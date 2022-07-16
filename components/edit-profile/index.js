@@ -33,7 +33,6 @@ function EditProfile(props) {
             name="username"
             type="text"
             value={username}
-            disabled
             variant="filled"
             mb={3}
             onChange={onHandleChange}
@@ -58,6 +57,7 @@ function EditProfile(props) {
             name="email"
             type="text"
             value={email}
+            disabled
             variant="filled"
             mb={3}
             onChange={onHandleChange}
