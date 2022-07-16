@@ -53,7 +53,6 @@ function Register() {
       console.log({error});
       alert(error.response.data.message);
     } finally {
-      // akan dijalankan di akhir, terlepas proses di try berhasil ataupun gagal lalu masuk ke catch
       setisRegisterProcess(false);
     }
   };

@@ -15,6 +15,7 @@ function MyApp({Component, pageProps}) {
               name="description"
               content="The No. 1 Social App in Indonesia"
             />
+            <link rel="icon" href="/twitlite.ico" />
           </Head>
           <Component {...pageProps} />
         </Layout>

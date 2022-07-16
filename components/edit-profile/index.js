@@ -15,7 +15,6 @@ import {useState} from "react";
 
 function EditProfile(props) {
   const {isOpen, onClose, userProfile, onSaveProfileUpdate} = props;
-  // userProfile : { username, firstName, lastName, email, gender, phone, age }
   const [user, setUser] = useState(userProfile);
   const {username, firstName, lastName, email, gender, phone, age} = user;
 
