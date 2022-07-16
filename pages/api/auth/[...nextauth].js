@@ -5,9 +5,13 @@ import axiosInstance from "../../../services/axios";
 const credentialInstance = CredentialsProvider({
   async authorize(credentials) {
     try {
-      const {email, password} = credentials;
+      const {username, email, password} = credentials;
 
-      const res = await axiosInstance.post("/users/login", {email, password});
+      const res = await axiosInstance.post("/users/login", {
+        username,
+        email,
+        password,
+      });
 
       const user = res.data.data.result;
 

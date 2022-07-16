@@ -11,6 +11,7 @@ import {signIn} from "next-auth/react";
 import {useRouter} from "next/router";
 
 function Login() {
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
@@ -20,6 +21,7 @@ function Login() {
     setisRegisterProcess(true);
     const res = await signIn("credentials", {
       redirect: false,
+      username,
       email,
       password,
     });
@@ -48,17 +50,19 @@ function Login() {
         </Heading>
         <Input
           type="text"
-          value={email}
-          placeholder="your@mail.com"
+          value={username || email}
+          placeholder="Username or Email"
           variant="filled"
           mb={3}
-          onChange={(event) => setEmail(event.target.value)}
+          onChange={(event) =>
+            setUsername(event.target.value) || setEmail(event.target.value)
+          }
         />
         <InputGroup size="md">
           <Input
             pr="4.5rem"
             type={show ? "text" : "password"}
-            placeholder="Enter password"
+            placeholder="Password"
             variant="filled"
             mb={6}
             onChange={(event) => setPassword(event.target.value)}
