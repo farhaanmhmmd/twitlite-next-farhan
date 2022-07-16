@@ -13,6 +13,7 @@ function Register() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [isRegisterProcess, setisRegisterProcess] = useState(false);
 
   const validateEmail = (email) => {
@@ -39,6 +40,11 @@ function Register() {
         alert(
           "Passwords should contain at least 8 characters, an uppercase letter, a symbol, and a number"
         );
+        return false;
+      }
+
+      if (password != confirmPassword) {
+        alert("Passwords do not match");
         return false;
       }
 
@@ -80,21 +86,22 @@ function Register() {
           mb={3}
           onChange={(event) => setEmail(event.target.value)}
         />
-        <InputGroup size="md">
-          <Input
-            pr="4.5rem"
-            type={show ? "text" : "password"}
-            placeholder="Enter password"
-            variant="filled"
-            mb={6}
-            onChange={(event) => setPassword(event.target.value)}
-          />
-          <InputRightElement width="4.5rem">
-            <Button h="1.75rem" size="sm" onClick={handleClick}>
-              {show ? "Hide" : "Show"}
-            </Button>
-          </InputRightElement>
-        </InputGroup>
+        <Input
+          type="password"
+          value={password}
+          placeholder="******************"
+          variant="filled"
+          mb={3}
+          onChange={(event) => setPassword(event.target.value)}
+        />
+        <Input
+          type="password"
+          value={confirmPassword}
+          placeholder="******************"
+          variant="filled"
+          mb={6}
+          onChange={(event) => setConfirmPassword(event.target.value)}
+        />
         <Button
           isLoading={isRegisterProcess}
           colorScheme="teal"
