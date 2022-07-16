@@ -36,9 +36,16 @@ function Login() {
   const handleClick = () => setShow(!show);
 
   return (
-    <Flex height="85vh" alignItems="center" justifyContent="center">
-      <Flex direction="column" background="gray.400" p={12} rounded={6}>
-        <Heading mb={6}>Login</Heading>
+    <Flex
+      bg="blue.900"
+      height="89vh"
+      alignItems="center"
+      justifyContent="center"
+    >
+      <Flex direction="column" background="gray.400" p={10} rounded={6}>
+        <Heading mb={6} size="lg">
+          Login
+        </Heading>
         <Input
           type="text"
           value={email}
@@ -64,7 +71,7 @@ function Login() {
         </InputGroup>
         <Button
           isLoading={isRegisterProcess}
-          colorScheme="teal"
+          colorScheme="blue"
           onClick={onLoginClick}
         >
           Login

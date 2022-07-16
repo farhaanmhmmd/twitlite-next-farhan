@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {getSession} from "next-auth/react";
 import axiosInstance from "../../services/axios";
-import {Text, VStack, Button, useDisclosure} from "@chakra-ui/react";
+import {Text, VStack, Flex, Button, useDisclosure, Box} from "@chakra-ui/react";
 import Image from "next/image";
 import MyButton from "../../components/button";
 import {api_origin} from "../../constraint";
@@ -89,29 +89,33 @@ function Profile(props) {
 
   return (
     <>
-      <VStack mt={2}>
-        <Image src={imgSource} width={200} height={200} />
-        <input type={"file"} onChange={onFileChange} />
-        <Button variant={"ghost"} onClick={onSaveButton}>
-          Save
-        </Button>
-      </VStack>
-      <Text>Username : {username}</Text>
-      <Text>First name : {firstName}</Text>
-      <Text>Last name : {lastName}</Text>
-      <Text>Email : {email}</Text>
-      <Text>Age : {age}</Text>
-      <Text>Gender : {gender}</Text>
-      <Text>Phone : {phone}</Text>
-      <MyButton variant={"ghost"} onClick={onOpen}>
-        Edit Profile
-      </MyButton>
-      <EditProfile
-        isOpen={isOpen}
-        onClose={onClose}
-        userProfile={userProfile}
-        onSaveProfileUpdate={onSaveProfileUpdate}
-      />
+      <Flex height="89vH" bg="blue.900" direction="column" textColor="white">
+        <Box
+          borderRadius={6}
+          marginX="60vH"
+          marginY="9vH"
+          border="1px"
+          borderColor="blue.700"
+          background="blue.700"
+        >
+          <VStack marginY={4}>
+            <Image src={imgSource} width={200} height={200} />
+            <input type={"file"} onChange={onFileChange} />
+            <Button colorScheme="blue" variant={"solid"} onClick={onSaveButton}>
+              Save
+            </Button>
+            <Button colorScheme="blue" variant={"solid"} onClick={onOpen}>
+              Edit Profile
+            </Button>
+            <EditProfile
+              isOpen={isOpen}
+              onClose={onClose}
+              userProfile={userProfile}
+              onSaveProfileUpdate={onSaveProfileUpdate}
+            />
+          </VStack>
+        </Box>
+      </Flex>
     </>
   );
 }
@@ -140,3 +144,20 @@ export async function getServerSideProps(context) {
 }
 
 export default Profile;
+
+{
+  /* <Flex bg="blue.900">
+        <VStack alignItems="left" textColor="white" marginLeft={3}>
+          <Text>Username : {username}</Text>
+          <Text>
+            Full Name : {firstName} {lastName}
+          </Text>
+          <Text>Email : {email}</Text>
+          <Text>Age : {age}</Text>
+          <Text>Gender : {gender}</Text>
+          <Text>Phone : {phone}</Text>
+          
+          
+        </VStack>
+      </Flex> */
+}

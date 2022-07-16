@@ -6,9 +6,7 @@ function Layout({children}) {
   return (
     <>
       <Navigation />
-      <Box width="80%" mx="auto">
-        {children}
-      </Box>
+      <Box width="100%">{children}</Box>
     </>
   );
 }

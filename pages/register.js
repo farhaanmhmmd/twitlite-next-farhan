@@ -67,9 +67,16 @@ function Register() {
   const handleClick = () => setShow(!show);
 
   return (
-    <Flex height="85vh" alignItems="center" justifyContent="center">
-      <Flex direction="column" background="gray.400" p={12} rounded={6}>
-        <Heading mb={6}>Register</Heading>
+    <Flex
+      bg="blue.900"
+      height="89vh"
+      alignItems="center"
+      justifyContent="center"
+    >
+      <Flex direction="column" background="gray.400" p={10} rounded={6}>
+        <Heading mb={6} size="lg">
+          Register
+        </Heading>
         <Input
           type="text"
           value={username}
@@ -104,7 +111,7 @@ function Register() {
         />
         <Button
           isLoading={isRegisterProcess}
-          colorScheme="teal"
+          colorScheme="blue"
           onClick={onRegisterClick}
         >
           Register
