@@ -1,5 +1,12 @@
-import {Button, Flex, Heading, Input} from "@chakra-ui/react";
-import {useState} from "react";
+import {
+  Button,
+  Flex,
+  Heading,
+  Input,
+  InputGroup,
+  InputRightElement,
+} from "@chakra-ui/react";
+import React, {useState} from "react";
 import {signIn} from "next-auth/react";
 import {useRouter} from "next/router";
 
@@ -25,6 +32,9 @@ function Login() {
     setisRegisterProcess(false);
   };
 
+  const [show, setShow] = React.useState(false);
+  const handleClick = () => setShow(!show);
+
   return (
     <Flex height="85vh" alignItems="center" justifyContent="center">
       <Flex direction="column" background="gray.400" p={12} rounded={6}>
@@ -37,15 +47,21 @@ function Login() {
           mb={3}
           onChange={(event) => setEmail(event.target.value)}
         />
-        <Input
-          type="password"
-          value={password}
-          placeholder="**************"
-          variant="filled"
-          mb={6}
-          onChange={(event) => setPassword(event.target.value)}
-        />
-
+        <InputGroup size="md">
+          <Input
+            pr="4.5rem"
+            type={show ? "text" : "password"}
+            placeholder="Enter password"
+            variant="filled"
+            mb={6}
+            onChange={(event) => setPassword(event.target.value)}
+          />
+          <InputRightElement width="4.5rem">
+            <Button h="1.75rem" size="sm" onClick={handleClick}>
+              {show ? "Hide" : "Show"}
+            </Button>
+          </InputRightElement>
+        </InputGroup>
         <Button
           isLoading={isRegisterProcess}
           colorScheme="teal"
