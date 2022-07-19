@@ -12,6 +12,9 @@ function Profile(props) {
   const [user, setUser] = useState(props.user);
   const {isOpen, onOpen, onClose} = useDisclosure();
   const [imgSource, setimgSource] = useState(api_origin + props.user.image);
+  // const [isOpen, setIsOpen] = useState(true);
+  // const onClose = () => setIsOpen(true);
+  // const onOpen = () => setIsOpen(false);
 
   const {
     username,
@@ -19,7 +22,6 @@ function Profile(props) {
     last_name: lastName,
     email,
     gender,
-    phone,
     age,
   } = user;
 
@@ -29,7 +31,6 @@ function Profile(props) {
     lastName,
     email,
     gender,
-    phone,
     age,
   };
 
@@ -108,7 +109,7 @@ function Profile(props) {
               Edit Profile
             </Button>
             <EditProfile
-              isOpen={isOpen}
+              isOpen={onOpen}
               onClose={onClose}
               userProfile={userProfile}
               onSaveProfileUpdate={onSaveProfileUpdate}
@@ -155,7 +156,6 @@ export default Profile;
           <Text>Email : {email}</Text>
           <Text>Age : {age}</Text>
           <Text>Gender : {gender}</Text>
-          <Text>Phone : {phone}</Text>
           
           
         </VStack>

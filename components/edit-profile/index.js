@@ -16,7 +16,7 @@ import {useState} from "react";
 function EditProfile(props) {
   const {isOpen, onClose, userProfile, onSaveProfileUpdate} = props;
   const [user, setUser] = useState(userProfile);
-  const {username, firstName, lastName, email, gender, phone, age} = user;
+  const {username, firstName, lastName, email, gender, age} = user;
 
   const onHandleChange = (e) => {
     setUser({...user, [e.target.name]: e.target.value});
@@ -64,7 +64,7 @@ function EditProfile(props) {
           />
           <Input
             name="age"
-            type="text"
+            type="number"
             value={age}
             variant="filled"
             mb={3}
@@ -80,15 +80,6 @@ function EditProfile(props) {
             <option value="M">M</option>
             <option value="F">F</option>
           </Select>
-
-          <Input
-            name="phone"
-            type="text"
-            value={phone}
-            variant="filled"
-            mb={3}
-            onChange={onHandleChange}
-          />
         </ModalBody>
 
         <ModalFooter>

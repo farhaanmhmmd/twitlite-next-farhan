@@ -9,8 +9,8 @@ import {
   ButtonGroup,
   Input,
 } from "@chakra-ui/react";
-import MyButton from "../button";
 import NextLink from "next/link";
+import Image from "next/image";
 import {useSession, signOut} from "next-auth/react";
 import {SearchIcon} from "@chakra-ui/icons";
 
@@ -22,17 +22,25 @@ function Navigation() {
   };
   return (
     <ChakraProvider>
-      <Box pl="45vH" width="100%" height="11vh" backgroundColor="gray.800">
+      <Box pl="30vH" width="100%" height="11vh" backgroundColor="gray.800">
         <HStack>
           <Flex>
+            <Box my="18px" mr={1}>
+              <Image
+                src="/twitlite.png"
+                alt="Twitlite Logo"
+                width={25}
+                height={25}
+              />
+            </Box>
             <Box>
-              <Text mr="2" fontSize="lg" my={4} color="blue.300">
+              <Text mr="5" fontSize="lg" my={4} color="blue.300">
                 TWITLITE
               </Text>
             </Box>
             <NextLink href="/">
               <Link>
-                <Text ml={3} mr="2" fontSize="lg" my={4} color="blue.300">
+                <Text mr="8" fontSize="lg" my={4} color="blue.300">
                   Home
                 </Text>
               </Link>
@@ -48,7 +56,7 @@ function Navigation() {
                 />
               </ButtonGroup>
             </Box>
-            <Input placeholder="Search" my={4} size="sm" width="58vH" />
+            <Input placeholder="Search" my={4} size="sm" width="68vH" />
             {/* {session && (
               <NextLink href="/products">
                 <Link>
@@ -63,7 +71,7 @@ function Navigation() {
                 <NextLink href="/login">
                   <Link>
                     <Text
-                      ml="4vH"
+                      ml="8vH"
                       mr="3"
                       fontSize="lg"
                       color="blue.300"
@@ -94,7 +102,7 @@ function Navigation() {
                 </NextLink> */}
                 <Link>
                   <Text
-                    ml="4vH"
+                    ml="8vH"
                     onClick={onLogoutClick}
                     my={4}
                     fontSize="lg"

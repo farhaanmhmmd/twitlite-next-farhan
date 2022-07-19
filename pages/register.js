@@ -31,6 +31,11 @@ function Register() {
     try {
       setisRegisterProcess(true);
 
+      if (username.length > 12) {
+        alert("Username max characters is 12");
+        return false;
+      }
+
       if (!validateEmail(email)) {
         alert("Invalid email address");
         return false;
