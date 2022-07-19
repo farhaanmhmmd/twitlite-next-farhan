@@ -92,7 +92,7 @@ function Profile(props) {
     <>
       <Flex height="89vH" bg="blue.900" direction="column" textColor="white">
         <Box
-          borderRadius={6}
+          borderRadius={12}
           marginX="60vH"
           marginY="9vH"
           border="1px"
@@ -109,7 +109,7 @@ function Profile(props) {
               Edit Profile
             </Button>
             <EditProfile
-              isOpen={onOpen}
+              isOpen={isOpen}
               onClose={onClose}
               userProfile={userProfile}
               onSaveProfileUpdate={onSaveProfileUpdate}

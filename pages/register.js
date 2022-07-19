@@ -78,38 +78,42 @@ function Register() {
       alignItems="center"
       justifyContent="center"
     >
-      <Flex direction="column" background="gray.400" p={10} rounded={6}>
-        <Heading mb={6} size="lg">
+      <Flex direction="column" background="gray.800" p={10} rounded={6}>
+        <Heading mb={6} size="lg" color="white">
           Register
         </Heading>
         <Input
+          _focusVisible
           type="text"
           value={username}
-          placeholder="yourname"
+          placeholder="Username"
           variant="filled"
           mb={3}
           onChange={(event) => setUsername(event.target.value)}
         />
         <Input
+          _focusVisible
           type="text"
           value={email}
-          placeholder="your@mail.com"
+          placeholder="Email"
           variant="filled"
           mb={3}
           onChange={(event) => setEmail(event.target.value)}
         />
         <Input
+          _focusVisible
           type="password"
           value={password}
-          placeholder="******************"
+          placeholder="Password"
           variant="filled"
           mb={3}
           onChange={(event) => setPassword(event.target.value)}
         />
         <Input
+          _focusVisible
           type="password"
           value={confirmPassword}
-          placeholder="******************"
+          placeholder="Repeat Password"
           variant="filled"
           mb={6}
           onChange={(event) => setConfirmPassword(event.target.value)}

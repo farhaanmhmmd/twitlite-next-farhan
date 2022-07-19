@@ -44,11 +44,12 @@ function Login() {
       alignItems="center"
       justifyContent="center"
     >
-      <Flex direction="column" background="gray.400" p={10} rounded={6}>
-        <Heading mb={6} size="lg">
+      <Flex direction="column" background="gray.800" p={10} rounded={6}>
+        <Heading mb={6} size="lg" color="white">
           Login
         </Heading>
         <Input
+          _focusVisible
           type="text"
           value={username || email}
           placeholder="Username or Email"
@@ -60,6 +61,7 @@ function Login() {
         />
         <InputGroup size="md">
           <Input
+            _focusVisible
             pr="4.5rem"
             type={show ? "text" : "password"}
             placeholder="Password"
