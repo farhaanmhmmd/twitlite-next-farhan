@@ -16,7 +16,7 @@ import {useState} from "react";
 function EditProfile(props) {
   const {isOpen, onClose, userProfile, onSaveProfileUpdate} = props;
   const [user, setUser] = useState(userProfile);
-  const {username, firstName, lastName, email, gender, age} = user;
+  const {username, bio, firstName, lastName, email, gender, age} = user;
 
   const onHandleChange = (e) => {
     setUser({...user, [e.target.name]: e.target.value});
@@ -25,12 +25,13 @@ function EditProfile(props) {
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
       <ModalOverlay />
-      <ModalContent>
+      <ModalContent color="gray.800">
         <ModalHeader>Update Profile</ModalHeader>
         <ModalCloseButton />
         <ModalBody>
           <Input
             name="username"
+            placeholder="Username"
             type="text"
             value={username}
             variant="filled"
@@ -38,7 +39,17 @@ function EditProfile(props) {
             onChange={onHandleChange}
           />
           <Input
+            name="bio"
+            placeholder="Bio"
+            type="text"
+            value={bio}
+            variant="filled"
+            mb={3}
+            onChange={onHandleChange}
+          />
+          <Input
             name="firstName"
+            placeholder="First Name"
             type="text"
             value={firstName}
             variant="filled"
@@ -47,6 +58,7 @@ function EditProfile(props) {
           />
           <Input
             name="lastName"
+            placeholder="Last Name"
             type="text"
             value={lastName}
             variant="filled"
@@ -55,6 +67,7 @@ function EditProfile(props) {
           />
           <Input
             name="email"
+            placeholder="Email"
             type="text"
             value={email}
             disabled
@@ -64,6 +77,7 @@ function EditProfile(props) {
           />
           <Input
             name="age"
+            placeholder="Age"
             type="number"
             value={age}
             variant="filled"
@@ -72,6 +86,7 @@ function EditProfile(props) {
           />
           <Select
             name="gender"
+            placeholder="Gender"
             value={gender}
             variant="filled"
             onChange={onHandleChange}
@@ -84,7 +99,7 @@ function EditProfile(props) {
 
         <ModalFooter>
           <Button
-            colorScheme="green"
+            colorScheme="blue"
             mr={3}
             onClick={() => onSaveProfileUpdate(user)}
           >

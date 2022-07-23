@@ -26,6 +26,8 @@ function Login() {
       password,
     });
 
+    localStorage.setItem("activeUser", username);
+
     if (!res.error) {
       router.replace("/");
     } else {

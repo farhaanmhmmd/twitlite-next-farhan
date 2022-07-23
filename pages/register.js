@@ -31,8 +31,18 @@ function Register() {
     try {
       setisRegisterProcess(true);
 
+      if (!username.length) {
+        alert("Username cannot be empty");
+        return false;
+      }
+
       if (username.length > 12) {
         alert("Username max characters is 12");
+        return false;
+      }
+
+      if (!email.length) {
+        alert("Email cannot be empty");
         return false;
       }
 
