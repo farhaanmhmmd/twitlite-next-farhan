@@ -18,60 +18,112 @@ function Navigation() {
   const {data: session} = useSession();
 
   const onLogoutClick = async () => {
+    if (typeof window !== "undefined") {
+      localStorage.removeItem("userVerified");
+    }
+
     await signOut();
+    return {redirect: {destination: "/"}};
   };
+
   return (
     <ChakraProvider>
-      <Box pl="30vH" width="100%" height="11vh" backgroundColor="gray.800">
+      <Box pl="44vH" width="100%" height="11vh" backgroundColor="gray.800">
         <HStack>
           <Flex>
-            <Box my="18px" mr={1}>
-              <Image
-                src="/twitlite.png"
-                alt="Twitlite Logo"
-                width={25}
-                height={25}
-              />
-            </Box>
-            <Box>
-              <Text mr="5" fontSize="lg" my={4} color="blue.300">
-                TWITLITE
-              </Text>
-            </Box>
-            <NextLink href="/">
-              <Link>
-                <Text mr="8" fontSize="lg" my={4} color="blue.300">
-                  Home
-                </Text>
-              </Link>
-            </NextLink>
-            <Box>
-              <ButtonGroup>
-                <IconButton
-                  colorScheme="blue"
-                  variant="link"
-                  aria-label="Search database"
-                  my={6}
-                  icon={<SearchIcon />}
-                />
-              </ButtonGroup>
-            </Box>
-            <Input placeholder="Search" my={4} size="sm" width="68vH" />
-            {/* {session && (
-              <NextLink href="/products">
-                <Link>
-                  <Text mx="3" fontSize="lg" color="blue.300" my={4} w="100%">
-                    Products
+            {session && (
+              <>
+                <Box my="18px" mr={1}>
+                  <Image
+                    src="/twitlite.png"
+                    alt="Twitlite Logo"
+                    width={25}
+                    height={25}
+                  />
+                </Box>
+
+                <Box>
+                  <Text mr="3" fontSize="lg" my={4} color="blue.300">
+                    TWITLITE
                   </Text>
-                </Link>
-              </NextLink>
-            )} */}
+                </Box>
+              </>
+            )}
+            {!session && (
+              <>
+                <Box my="18px" mr={1}>
+                  <Image
+                    src="/twitlite.png"
+                    alt="Twitlite Logo"
+                    width={25}
+                    height={25}
+                  />
+                </Box>
+                <Box>
+                  <Text mr="3" fontSize="lg" my={4} color="blue.300">
+                    TWITLITE
+                  </Text>
+                </Box>
+              </>
+            )}
+            {session && (
+              <>
+                <NextLink href="/feeds">
+                  <Link>
+                    <Text
+                      marginLeft="2"
+                      mr="0"
+                      fontSize="lg"
+                      my={4}
+                      color="blue.300"
+                    >
+                      Feeds
+                    </Text>
+                  </Link>
+                </NextLink>
+              </>
+            )}
+            {session && (
+              <>
+                <Box>
+                  <ButtonGroup>
+                    <IconButton
+                      marginLeft="2vH"
+                      colorScheme="blue"
+                      variant="link"
+                      aria-label="Search database"
+                      my={6}
+                      icon={<SearchIcon />}
+                    />
+                  </ButtonGroup>
+                </Box>
+                <Input placeholder="Search" my={4} size="sm" width="60vH" />
+              </>
+            )}
+            {!session && (
+              <>
+                <Box>
+                  <ButtonGroup>
+                    <IconButton
+                      marginLeft="2vH"
+                      colorScheme="blue"
+                      variant="link"
+                      aria-label="Search database"
+                      my={6}
+                      icon={<SearchIcon />}
+                    />
+                  </ButtonGroup>
+                </Box>
+                <Input placeholder="Search" my={4} size="sm" width="68vH" />
+              </>
+            )}
+
             {!session && (
               <>
                 <NextLink href="/login">
                   <Link>
                     <Text
-                      ml="8vH"
+                      ml="6vH"
                       mr="3"
                       fontSize="lg"
                       color="blue.300"
@@ -102,7 +154,7 @@ function Navigation() {
                 </NextLink> */}
                 <Link>
                   <Text
-                    ml="8vH"
+                    ml="4vH"
                     onClick={onLogoutClick}
                     my={4}
                     fontSize="lg"

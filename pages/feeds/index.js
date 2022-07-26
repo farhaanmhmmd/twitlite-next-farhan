@@ -1,16 +1,24 @@
 import React from "react";
 
-function Home() {
-  return <div>Home</div>;
+function Feeds() {
+  let userVerif = false;
+  if (typeof window !== "undefined") {
+    userVerif = window.localStorage.getItem("userVerified");
+  }
+  if (userVerif) {
+    return <div>Feeds</div>;
+  } else {
+    return <div>Unverified</div>;
+  }
 }
 
-export default Home;
+export default Feeds;
 
 // import Head from "next/head";
 // import Image from "next/image";
 // import styles from "../styles/Home.module.css";
 
-// export default function Home() {
+// export default function Post() {
 //   let userVerif = false;
 //   if (typeof window !== "undefined") {
 //     userVerif = window.localStorage.getItem("userVerified");
@@ -31,7 +39,7 @@ export default Home;
 
 //           <p className={styles.description}>
 //             Get started by editing{" "}
-//             <code className={styles.code}>pages/Home.js</code>
+//             <code className={styles.code}>pages/index.js</code>
 //           </p>
 
 //           <div className={styles.grid}>

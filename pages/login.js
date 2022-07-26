@@ -15,10 +15,10 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
-  const [isRegisterProcess, setisRegisterProcess] = useState(false);
+  const [isLoginProcess, setisLoginProcess] = useState(false);
 
   const onLoginClick = async () => {
-    setisRegisterProcess(true);
+    setisLoginProcess(true);
     const res = await signIn("credentials", {
       redirect: false,
       username,
@@ -26,14 +26,14 @@ function Login() {
       password,
     });
 
-    localStorage.setItem("activeUser", username);
+    // localStorage.setItem("userVerified", true);
 
     if (!res.error) {
-      router.replace("/");
+      router.replace("/profile");
     } else {
       alert(res.error);
     }
-    setisRegisterProcess(false);
+    setisLoginProcess(false);
   };
 
   const [show, setShow] = React.useState(false);
@@ -78,7 +78,7 @@ function Login() {
           </InputRightElement>
         </InputGroup>
         <Button
-          isLoading={isRegisterProcess}
+          isLoading={isLoginProcess}
           colorScheme="blue"
           onClick={onLoginClick}
         >

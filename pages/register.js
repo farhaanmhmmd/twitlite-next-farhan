@@ -79,7 +79,10 @@ function Register() {
   };
 
   const [show, setShow] = React.useState(false);
+  const [showRepeat, setShowRepeat] = React.useState(false);
+
   const handleClick = () => setShow(!show);
+  const handleClickRepeat = () => setShowRepeat(!showRepeat);
 
   return (
     <Flex
@@ -110,24 +113,40 @@ function Register() {
           mb={3}
           onChange={(event) => setEmail(event.target.value)}
         />
-        <Input
-          _focusVisible
-          type="password"
-          value={password}
-          placeholder="Password"
-          variant="filled"
-          mb={3}
-          onChange={(event) => setPassword(event.target.value)}
-        />
-        <Input
-          _focusVisible
-          type="password"
-          value={confirmPassword}
-          placeholder="Repeat Password"
-          variant="filled"
-          mb={6}
-          onChange={(event) => setConfirmPassword(event.target.value)}
-        />
+        <InputGroup>
+          <Input
+            _focusVisible
+            pr="4.5rem"
+            type={show ? "text" : "password"}
+            value={password}
+            placeholder="Password"
+            variant="filled"
+            mb={3}
+            onChange={(event) => setPassword(event.target.value)}
+          />
+          <InputRightElement width="4.5rem">
+            <Button h="1.75rem" size="sm" onClick={handleClick}>
+              {show ? "Hide" : "Show"}
+            </Button>
+          </InputRightElement>
+        </InputGroup>
+        <InputGroup>
+          <Input
+            _focusVisible
+            pr="4.5rem"
+            type={showRepeat ? "text" : "password"}
+            value={confirmPassword}
+            placeholder="Repeat Password"
+            variant="filled"
+            mb={6}
+            onChange={(event) => setConfirmPassword(event.target.value)}
+          />
+          <InputRightElement width="4.5rem">
+            <Button h="1.75rem" size="sm" onClick={handleClickRepeat}>
+              {showRepeat ? "Hide" : "Show"}
+            </Button>
+          </InputRightElement>
+        </InputGroup>
         <Button
           isLoading={isRegisterProcess}
           colorScheme="blue"

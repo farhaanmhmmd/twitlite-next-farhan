@@ -92,8 +92,8 @@ function EditProfile(props) {
             onChange={onHandleChange}
             mb={3}
           >
-            <option value="M">M</option>
-            <option value="F">F</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
           </Select>
         </ModalBody>
 

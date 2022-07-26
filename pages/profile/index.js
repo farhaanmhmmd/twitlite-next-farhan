@@ -9,6 +9,7 @@ import EditProfile from "../../components/edit-profile";
 
 function Profile(props) {
   const [avatar, setAvatar] = useState({});
+  const [isEmailVerifProcess, setisEmailVerifProcess] = useState(false);
   const [user, setUser] = useState(props.user);
   const {isOpen, onOpen, onClose} = useDisclosure();
   const [imgSource, setimgSource] = useState(api_origin + props.user.image);
@@ -19,6 +20,7 @@ function Profile(props) {
   const {
     username,
     bio,
+    isVerified,
     first_name: firstName,
     last_name: lastName,
     email,
@@ -27,6 +29,7 @@ function Profile(props) {
   } = user;
 
   const userProfile = {
+    isVerified,
     username,
     bio,
     firstName,
@@ -35,6 +38,13 @@ function Profile(props) {
     gender,
     age,
   };
+
+  const userVerified = userProfile.isVerified;
+  if (userVerified) {
+    if (typeof window !== "undefined") {
+      localStorage.setItem("userVerified", true);
+    }
+  }
 
   const onFileChange = (event) => {
     setAvatar(event.target.files[0]);
@@ -92,10 +102,14 @@ function Profile(props) {
 
   const onSendEmailButton = async () => {
     try {
+      setisEmailVerifProcess(true);
+
       const res = await axiosInstance.post("/users/email/send", userProfile);
       alert(res.data.message);
     } catch (error) {
       console.log({error});
+    } finally {
+      setisEmailVerifProcess(false);
     }
   };
 
@@ -171,6 +185,7 @@ function Profile(props) {
                 colorScheme="blue"
                 variant={"solid"}
                 size="xs"
+                isLoading={isEmailVerifProcess}
                 onClick={() => onSendEmailButton(user)}
               >
                 Send Email Verification
@@ -187,15 +202,17 @@ export async function getServerSideProps(context) {
   try {
     const session = await getSession({req: context.req});
 
-    if (!session) return {redirect: {destination: "/login"}};
+    // if (!session) return {redirect: {destination: "/login"}};
+    if (!session) return {redirect: {destination: "/"}};
 
     const {accessToken} = session.user;
 
     const config = {
       headers: {Authorization: `Bearer ${accessToken}`},
     };
-
-    const res = await axiosInstance.get("/users/profile", config);
+    const username = session.user.username;
+    const URI = `/users/profile/${username}`;
+    const res = await axiosInstance.get(URI, config);
 
     return {
       props: {user: res.data.data.result, session},
