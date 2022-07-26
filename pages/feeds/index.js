@@ -1,18 +1,18 @@
 import React from "react";
 
-function Feeds() {
+function Posts() {
   let userVerif = false;
   if (typeof window !== "undefined") {
     userVerif = window.localStorage.getItem("userVerified");
   }
   if (userVerif) {
-    return <div>Feeds</div>;
+    return <div>Posts</div>;
   } else {
     return <div>Unverified</div>;
   }
 }
 
-export default Feeds;
+export default Posts;
 
 // import Head from "next/head";
 // import Image from "next/image";

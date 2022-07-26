@@ -68,7 +68,7 @@ function Navigation() {
             )}
             {session && (
               <>
-                <NextLink href="/feeds">
+                <NextLink href="/posts">
                   <Link>
                     <Text
                       marginLeft="2"
@@ -77,7 +77,7 @@ function Navigation() {
                       my={4}
                       color="blue.300"
                     >
-                      Feeds
+                      Posts
                     </Text>
                   </Link>
                 </NextLink>
