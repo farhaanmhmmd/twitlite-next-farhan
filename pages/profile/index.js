@@ -119,89 +119,164 @@ function Profile(props) {
     }
   };
 
-  return (
-    <>
-      <Flex>
-        <Flex
-          bg="blue.900"
-          width="700px"
-          height="89vH"
-          direction="column"
-          textColor="white"
-        >
-          <Box
-            width="60vH"
-            borderRadius={12}
-            marginLeft="50vH"
-            marginY="10vH"
-            border="1px"
-            borderColor="gray.800"
-            background="gray.800"
+  if (!userVerified) {
+    return (
+      <>
+        <Flex>
+          <Flex
+            bg="blue.900"
+            width="700px"
+            height="89vH"
+            direction="column"
+            textColor="white"
           >
-            <VStack marginY={4}>
-              <Image src={imgSource} width={150} height={200} />
-              <input type={"file"} onChange={onFileChange} />
-              <Button
-                colorScheme="blue"
-                variant={"solid"}
-                onClick={onSaveButton}
-              >
-                Save
-              </Button>
-              <Button colorScheme="blue" variant={"solid"} onClick={onOpen}>
-                Edit Profile
-              </Button>
-              <EditProfile
-                isOpen={isOpen}
-                onClose={onClose}
-                userProfile={userProfile}
-                onSaveProfileUpdate={onSaveProfileUpdate}
-              />
-            </VStack>
-          </Box>
-        </Flex>
-        <Flex
-          bg="blue.900"
-          width="700px"
-          height="89vH"
-          direction="column"
-          textColor="white"
-        >
-          <Box
-            width="60vH"
-            borderRadius={12}
-            marginLeft="5vH"
-            border="1px"
-            borderColor="gray.800"
-            background="gray.800"
-            marginTop="23vH"
+            <Box
+              width="60vH"
+              borderRadius={12}
+              marginLeft="50vH"
+              marginY="10vH"
+              border="1px"
+              borderColor="gray.800"
+              background="gray.800"
+            >
+              <VStack marginY={4}>
+                <Image src={imgSource} width={150} height={200} />
+                <input type={"file"} onChange={onFileChange} />
+                <Button
+                  colorScheme="blue"
+                  variant={"solid"}
+                  onClick={onSaveButton}
+                >
+                  Save
+                </Button>
+                <Button colorScheme="blue" variant={"solid"} onClick={onOpen}>
+                  Edit Profile
+                </Button>
+                <EditProfile
+                  isOpen={isOpen}
+                  onClose={onClose}
+                  userProfile={userProfile}
+                  onSaveProfileUpdate={onSaveProfileUpdate}
+                />
+              </VStack>
+            </Box>
+          </Flex>
+          <Flex
+            bg="blue.900"
+            width="700px"
+            height="89vH"
+            direction="column"
+            textColor="white"
           >
-            <VStack alignItems="left" textColor="white" marginLeft={3}>
-              <Text>Username : {username}</Text>
-              <text>Bio : {bio}</text>
-              <Text>
-                Full Name : {firstName} {lastName}
-              </Text>
-              <Text>Email : {email}</Text>
-              <Text>Age : {age}</Text>
-              <Text>Gender : {gender}</Text>
-            </VStack>
-            <VStack marginY={2} alignContent="center">
-              <Button
-                colorScheme="blue"
-                variant={"solid"}
-                size="xs"
-                isLoading={isEmailVerifProcess}
-                onClick={() => onSendEmailButton(user)}
-              >
-                Send Email Verification
-              </Button>
-            </VStack>
-          </Box>
+            <Box
+              width="60vH"
+              borderRadius={12}
+              marginLeft="5vH"
+              border="1px"
+              borderColor="gray.800"
+              background="gray.800"
+              marginTop="23vH"
+            >
+              <VStack alignItems="left" textColor="white" marginLeft={3}>
+                <Text>Username : {username}</Text>
+                <text>Bio : {bio}</text>
+                <Text>
+                  Full Name : {firstName} {lastName}
+                </Text>
+                <Text>Email : {email}</Text>
+                <Text>Age : {age}</Text>
+                <Text>Gender : {gender}</Text>
+              </VStack>
+              <VStack marginY={2} alignContent="center">
+                <Button
+                  colorScheme="blue"
+                  variant={"solid"}
+                  size="xs"
+                  isLoading={isEmailVerifProcess}
+                  onClick={() => onSendEmailButton(user)}
+                >
+                  Send Email Verification
+                </Button>
+              </VStack>
+            </Box>
+          </Flex>
         </Flex>
-      </Flex>
-    </>
-  );
+      </>
+    );
+  } else {
+    return (
+      <>
+        <Flex>
+          <Flex
+            bg="blue.900"
+            width="700px"
+            height="89vH"
+            direction="column"
+            textColor="white"
+          >
+            <Box
+              width="60vH"
+              borderRadius={12}
+              marginLeft="50vH"
+              marginY="10vH"
+              border="1px"
+              borderColor="gray.800"
+              background="gray.800"
+            >
+              <VStack marginY={4}>
+                <Image src={imgSource} width={150} height={200} />
+                <input type={"file"} onChange={onFileChange} />
+                <Button
+                  colorScheme="blue"
+                  variant={"solid"}
+                  onClick={onSaveButton}
+                >
+                  Save
+                </Button>
+                <Button colorScheme="blue" variant={"solid"} onClick={onOpen}>
+                  Edit Profile
+                </Button>
+                <EditProfile
+                  isOpen={isOpen}
+                  onClose={onClose}
+                  userProfile={userProfile}
+                  onSaveProfileUpdate={onSaveProfileUpdate}
+                />
+              </VStack>
+            </Box>
+          </Flex>
+          <Flex
+            bg="blue.900"
+            width="700px"
+            height="89vH"
+            direction="column"
+            textColor="white"
+          >
+            <Box
+              width="60vH"
+              borderRadius={12}
+              marginLeft="5vH"
+              border="1px"
+              borderColor="gray.800"
+              background="gray.800"
+              marginTop="23vH"
+            >
+              <VStack alignItems="left" textColor="white" marginLeft={3}>
+                <Text>Username : {username}</Text>
+                <text>Bio : {bio}</text>
+                <Text>
+                  Full Name : {firstName} {lastName}
+                </Text>
+                <Text>Email : {email}</Text>
+                <Text>Age : {age}</Text>
+                <Text>Gender : {gender}</Text>
+              </VStack>
+            </Box>
+          </Flex>
+        </Flex>
+      </>
+    );
+  }
 }
 
 export async function getServerSideProps(context) {

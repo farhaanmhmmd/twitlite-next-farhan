@@ -167,7 +167,8 @@ function Navigation() {
                 <NextLink href="/profile">
                   <Link>
                     <Text ml="5" fontSize="lg" color="blue.300" my={4}>
-                      {session?.user.username}
+                      Profile
+                      {/* {session?.user.username} */}
                     </Text>
                   </Link>
                 </NextLink>
