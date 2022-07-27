@@ -47,7 +47,7 @@ function Login() {
       <Flex>
         <Flex>
           <Image
-            src="/black.jpg"
+            src="/twitliteloginregisterpage.jpg"
             alt="Twitlite Home Wallpaper"
             width={1000}
             height={514}
