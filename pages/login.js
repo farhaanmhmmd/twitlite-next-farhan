@@ -4,11 +4,14 @@ import {
   Heading,
   Input,
   InputGroup,
+  Box,
   InputRightElement,
+  ChakraProvider,
 } from "@chakra-ui/react";
 import React, {useState} from "react";
 import {signIn} from "next-auth/react";
 import {useRouter} from "next/router";
+import Image from "next/image";
 
 function Login() {
   const [username, setUsername] = useState("");
@@ -40,52 +43,73 @@ function Login() {
   const handleClick = () => setShow(!show);
 
   return (
-    <Flex
-      bg="blue.900"
-      height="89vh"
-      alignItems="center"
-      justifyContent="center"
-    >
-      <Flex direction="column" background="gray.800" p={10} rounded={6}>
-        <Heading mb={6} size="lg" color="white">
-          Login
-        </Heading>
-        <Input
-          _focusVisible
-          type="text"
-          value={username || email}
-          placeholder="Username or Email"
-          variant="filled"
-          mb={3}
-          onChange={(event) =>
-            setUsername(event.target.value) || setEmail(event.target.value)
-          }
-        />
-        <InputGroup size="md">
-          <Input
-            _focusVisible
-            pr="4.5rem"
-            type={show ? "text" : "password"}
-            placeholder="Password"
-            variant="filled"
-            mb={6}
-            onChange={(event) => setPassword(event.target.value)}
+    <ChakraProvider>
+      <Flex>
+        <Flex>
+          <Image
+            src="/black.jpg"
+            alt="Twitlite Home Wallpaper"
+            width={1000}
+            height={514}
           />
-          <InputRightElement width="4.5rem">
-            <Button h="1.75rem" size="sm" onClick={handleClick}>
-              {show ? "Hide" : "Show"}
-            </Button>
-          </InputRightElement>
-        </InputGroup>
-        <Button
-          isLoading={isLoginProcess}
-          colorScheme="blue"
-          onClick={onLoginClick}
+        </Flex>
+        <Flex
+          height="89vh"
+          width="85vH"
+          alignItems="center"
+          justifyContent="center"
+          background="black"
         >
-          Login
-        </Button>
+          <Flex direction="column" rounded={6} p={9}>
+            <Box marginBottom={3} textAlign="center">
+              <Image
+                src="/twitlite.png"
+                alt="Twitlite Logo"
+                width={40}
+                height={40}
+              />
+            </Box>
+            <Heading mb={6} size="md" color="white" textAlign="center">
+              Login to Twitlite
+            </Heading>
+            <Input
+              _focusVisible
+              type="text"
+              value={username || email}
+              placeholder="Username or Email"
+              variant="filled"
+              mb={3}
+              onChange={(event) =>
+                setUsername(event.target.value) || setEmail(event.target.value)
+              }
+            />
+            <InputGroup size="md">
+              <Input
+                _focusVisible
+                pr="4.5rem"
+                type={show ? "text" : "password"}
+                placeholder="Password"
+                variant="filled"
+                mb={6}
+                onChange={(event) => setPassword(event.target.value)}
+              />
+              <InputRightElement width="4.5rem">
+                <Button h="1.75rem" size="sm" onClick={handleClick}>
+                  {show ? "Hide" : "Show"}
+                </Button>
+              </InputRightElement>
+            </InputGroup>
+            <Button
+              isLoading={isLoginProcess}
+              colorScheme="blue"
+              onClick={onLoginClick}
+            >
+              Login
+            </Button>
+          </Flex>
+        </Flex>
       </Flex>
-    </Flex>
+    </ChakraProvider>
   );
 }
 
