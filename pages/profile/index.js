@@ -174,11 +174,11 @@ function Profile(props) {
             >
               <VStack alignItems="left" textColor="white" marginLeft={3}>
                 <Text>Username : {username}</Text>
-                <text>Bio : {bio}</text>
+                <Text>Email : {email}</Text>
+                <Text>Bio : {bio}</Text>
                 <Text>
                   Full Name : {firstName} {lastName}
                 </Text>
-                <Text>Email : {email}</Text>
                 <Text>Gender : {gender}</Text>
               </VStack>
               <VStack marginY={2} alignContent="center">
@@ -257,11 +257,11 @@ function Profile(props) {
             >
               <VStack alignItems="left" textColor="white" marginLeft={3}>
                 <Text>Username : {username}</Text>
-                <text>Bio : {bio}</text>
+                <Text>Email : {email}</Text>
+                <Text>Bio : {bio}</Text>
                 <Text>
                   Full Name : {firstName} {lastName}
                 </Text>
-                <Text>Email : {email}</Text>
                 <Text>Gender : {gender}</Text>
               </VStack>
             </Box>

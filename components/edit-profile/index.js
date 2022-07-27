@@ -25,11 +25,12 @@ function EditProfile(props) {
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
       <ModalOverlay />
-      <ModalContent color="gray.800">
-        <ModalHeader>Update Profile</ModalHeader>
+      <ModalContent backgroundColor="gray.700">
+        <ModalHeader color="white">Update Profile</ModalHeader>
         <ModalCloseButton />
         <ModalBody>
           <Input
+            _focusVisible
             name="username"
             placeholder="Username"
             type="text"
@@ -39,33 +40,7 @@ function EditProfile(props) {
             onChange={onHandleChange}
           />
           <Input
-            name="bio"
-            placeholder="Bio"
-            type="text"
-            value={bio}
-            variant="filled"
-            mb={3}
-            onChange={onHandleChange}
-          />
-          <Input
-            name="firstName"
-            placeholder="First Name"
-            type="text"
-            value={firstName}
-            variant="filled"
-            mb={3}
-            onChange={onHandleChange}
-          />
-          <Input
-            name="lastName"
-            placeholder="Last Name"
-            type="text"
-            value={lastName}
-            variant="filled"
-            mb={3}
-            onChange={onHandleChange}
-          />
-          <Input
+            _focusVisible
             name="email"
             placeholder="Email"
             type="text"
@@ -75,7 +50,38 @@ function EditProfile(props) {
             mb={3}
             onChange={onHandleChange}
           />
+          <Input
+            _focusVisible
+            name="bio"
+            placeholder="Bio"
+            type="text"
+            value={bio}
+            variant="filled"
+            mb={3}
+            onChange={onHandleChange}
+          />
+          <Input
+            _focusVisible
+            name="firstName"
+            placeholder="First Name"
+            type="text"
+            value={firstName}
+            variant="filled"
+            mb={3}
+            onChange={onHandleChange}
+          />
+          <Input
+            _focusVisible
+            name="lastName"
+            placeholder="Last Name"
+            type="text"
+            value={lastName}
+            variant="filled"
+            mb={3}
+            onChange={onHandleChange}
+          />
           <Select
+            _focusVisible
             name="gender"
             placeholder="Gender"
             value={gender}
