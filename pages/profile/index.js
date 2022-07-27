@@ -13,9 +13,6 @@ function Profile(props) {
   const [user, setUser] = useState(props.user);
   const {isOpen, onOpen, onClose} = useDisclosure();
   const [imgSource, setimgSource] = useState(api_origin + props.user.image);
-  // const [isOpen, setIsOpen] = useState(true);
-  // const onClose = () => setIsOpen(true);
-  // const onOpen = () => setIsOpen(false);
 
   const {
     user_id,
@@ -26,7 +23,6 @@ function Profile(props) {
     last_name: lastName,
     email,
     gender,
-    age,
   } = user;
 
   const userProfile = {
@@ -38,7 +34,6 @@ function Profile(props) {
     lastName,
     email,
     gender,
-    age,
   };
 
   const userVerified = userProfile.isVerified;
@@ -184,7 +179,6 @@ function Profile(props) {
                   Full Name : {firstName} {lastName}
                 </Text>
                 <Text>Email : {email}</Text>
-                <Text>Age : {age}</Text>
                 <Text>Gender : {gender}</Text>
               </VStack>
               <VStack marginY={2} alignContent="center">
@@ -268,7 +262,6 @@ function Profile(props) {
                   Full Name : {firstName} {lastName}
                 </Text>
                 <Text>Email : {email}</Text>
-                <Text>Age : {age}</Text>
                 <Text>Gender : {gender}</Text>
               </VStack>
             </Box>

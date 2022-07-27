@@ -37,8 +37,6 @@ function Login() {
       password,
     });
 
-    // localStorage.setItem("userVerified", true);
-
     if (!res.error) {
       router.replace("/profile");
     } else {

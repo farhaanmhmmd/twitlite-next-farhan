@@ -16,7 +16,7 @@ import {useState} from "react";
 function EditProfile(props) {
   const {isOpen, onClose, userProfile, onSaveProfileUpdate} = props;
   const [user, setUser] = useState(userProfile);
-  const {username, bio, firstName, lastName, email, gender, age} = user;
+  const {username, bio, firstName, lastName, email, gender} = user;
 
   const onHandleChange = (e) => {
     setUser({...user, [e.target.name]: e.target.value});
@@ -71,15 +71,6 @@ function EditProfile(props) {
             type="text"
             value={email}
             disabled
-            variant="filled"
-            mb={3}
-            onChange={onHandleChange}
-          />
-          <Input
-            name="age"
-            placeholder="Age"
-            type="number"
-            value={age}
             variant="filled"
             mb={3}
             onChange={onHandleChange}
