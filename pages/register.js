@@ -10,9 +10,20 @@ import {
 } from "@chakra-ui/react";
 import React, {useState} from "react";
 import axiosInstance from "../services/axios";
+import {useRouter} from "next/router";
 import Image from "next/image";
 
 function Register() {
+  const router = useRouter();
+  let userID = false;
+  if (typeof window !== "undefined") {
+    userID = window.localStorage.getItem("user_id");
+  }
+
+  if (userID) {
+    router.replace("/profile");
+  }
+
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

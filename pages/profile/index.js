@@ -18,6 +18,7 @@ function Profile(props) {
   // const onOpen = () => setIsOpen(false);
 
   const {
+    user_id,
     username,
     bio,
     isVerified,
@@ -29,6 +30,7 @@ function Profile(props) {
   } = user;
 
   const userProfile = {
+    user_id,
     isVerified,
     username,
     bio,
@@ -43,6 +45,13 @@ function Profile(props) {
   if (userVerified) {
     if (typeof window !== "undefined") {
       localStorage.setItem("userVerified", true);
+    }
+  }
+
+  const userID = userProfile.user_id;
+  if (userID) {
+    if (typeof window !== "undefined") {
+      localStorage.setItem("user_id", userID);
     }
   }
 
@@ -87,11 +96,8 @@ function Profile(props) {
       await axiosInstance.patch("/users", body, config);
 
       alert("Update Profile Success");
-
-      const resGetUserProfile = await axiosInstance.get(
-        "/users/profile",
-        config
-      );
+      const URI = `/users/profile/${user_id}`;
+      const resGetUserProfile = await axiosInstance.get(URI, config);
 
       setUser(resGetUserProfile.data.data.result);
     } catch (error) {
@@ -210,8 +216,9 @@ export async function getServerSideProps(context) {
     const config = {
       headers: {Authorization: `Bearer ${accessToken}`},
     };
-    const username = session.user.username;
-    const URI = `/users/profile/${username}`;
+
+    const user_id = session.user.user_id;
+    const URI = `/users/profile/${user_id}`;
     const res = await axiosInstance.get(URI, config);
 
     return {

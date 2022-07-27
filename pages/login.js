@@ -14,10 +14,18 @@ import {useRouter} from "next/router";
 import Image from "next/image";
 
 function Login() {
+  const router = useRouter();
+  let userID = false;
+  if (typeof window !== "undefined") {
+    userID = window.localStorage.getItem("user_id");
+  }
+
+  if (userID) {
+    router.replace("/profile");
+  }
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const router = useRouter();
   const [isLoginProcess, setisLoginProcess] = useState(false);
 
   const onLoginClick = async () => {

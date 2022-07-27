@@ -20,6 +20,7 @@ function Navigation() {
   const onLogoutClick = async () => {
     if (typeof window !== "undefined") {
       localStorage.removeItem("userVerified");
+      localStorage.removeItem("user_id");
     }
 
     await signOut();
