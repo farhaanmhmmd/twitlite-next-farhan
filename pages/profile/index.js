@@ -135,7 +135,7 @@ function Profile(props) {
               background="gray.800"
             >
               <VStack marginY={4}>
-                <Image src={imgSource} width={150} height={200} />
+                <Image src={imgSource} width={200} height={200} />
                 <input type={"file"} onChange={onFileChange} />
                 <Button
                   colorScheme="blue"
@@ -218,7 +218,7 @@ function Profile(props) {
               background="gray.800"
             >
               <VStack marginY={4}>
-                <Image src={imgSource} width={150} height={200} />
+                <Image src={imgSource} width={200} height={200} />
                 <input type={"file"} onChange={onFileChange} />
                 <Button
                   colorScheme="blue"
@@ -276,7 +276,6 @@ export async function getServerSideProps(context) {
   try {
     const session = await getSession({req: context.req});
 
-    // if (!session) return {redirect: {destination: "/login"}};
     if (!session) return {redirect: {destination: "/"}};
 
     const {accessToken} = session.user;

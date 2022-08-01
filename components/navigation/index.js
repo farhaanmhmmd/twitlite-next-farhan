@@ -42,12 +42,13 @@ function Navigation() {
                     height={25}
                   />
                 </Box>
-
-                <Box>
-                  <Text mr="3" fontSize="lg" my={4} color="blue.300">
-                    TWITLITE
-                  </Text>
-                </Box>
+                <NextLink href="/">
+                  <Link>
+                    <Text mr="3" fontSize="lg" my={4} color="blue.300">
+                      TWITLITE
+                    </Text>
+                  </Link>
+                </NextLink>
               </>
             )}
             {!session && (
@@ -60,11 +61,13 @@ function Navigation() {
                     height={25}
                   />
                 </Box>
-                <Box>
-                  <Text mr="3" fontSize="lg" my={4} color="blue.300">
-                    TWITLITE
-                  </Text>
-                </Box>
+                <NextLink href="/">
+                  <Link>
+                    <Text mr="3" fontSize="lg" my={4} color="blue.300">
+                      TWITLITE
+                    </Text>
+                  </Link>
+                </NextLink>
               </>
             )}
             {session && (

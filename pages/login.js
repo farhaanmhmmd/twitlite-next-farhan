@@ -38,7 +38,7 @@ function Login() {
     });
 
     if (!res.error) {
-      router.replace("/profile");
+      router.replace("/posts");
     } else {
       alert(res.error);
     }
