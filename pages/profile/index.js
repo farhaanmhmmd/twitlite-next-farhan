@@ -3,7 +3,6 @@ import {getSession} from "next-auth/react";
 import axiosInstance from "../../services/axios";
 import {Text, VStack, Flex, Button, useDisclosure, Box} from "@chakra-ui/react";
 import Image from "next/image";
-import MyButton from "../../components/button";
 import {api_origin} from "../../constraint";
 import EditProfile from "../../components/edit-profile";
 

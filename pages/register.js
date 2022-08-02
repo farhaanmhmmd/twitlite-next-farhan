@@ -67,7 +67,7 @@ function Register() {
 
       if (!validatePassword(password)) {
         alert(
-          "Passwords should contain at least 8 characters, an uppercase letter, a symbol, and a number"
+          "Your password is too weak. Passwords should contain at least 8 characters, an uppercase letter, a symbol, and a number"
         );
         return false;
       }

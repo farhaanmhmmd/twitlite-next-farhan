@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import axiosInstance from "../services/axios";
+import axiosInstance from "../../services/axios";
 import {getSession} from "next-auth/react";
 import {useRouter} from "next/router";
 import {
@@ -12,9 +12,8 @@ import {
   Image,
   Flex,
 } from "@chakra-ui/react";
-import {api_origin} from "../constraint";
 
-function postImage(props) {
+function createPost(props) {
   const [imgSource, setImgSource] = useState({});
   const [image, setImage] = useState({});
   const [caption, setCaption] = useState("");
@@ -58,7 +57,13 @@ function postImage(props) {
   }
 
   return (
-    <Flex bg="blue.900" height="89vH" width="100%">
+    <Flex
+      bg="blue.900"
+      height="89vH"
+      width="100%"
+      backgroundImage="url('twitlitehomewallpaper.jpg')"
+      backgroundSize={1370}
+    >
       <Flex textColor="white">
         <Box
           width="70vH"
@@ -118,4 +123,4 @@ export async function getServerSideProps(context) {
   }
 }
 
-export default postImage;
+export default createPost;

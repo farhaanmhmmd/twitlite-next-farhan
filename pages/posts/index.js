@@ -3,6 +3,7 @@ import {getSession} from "next-auth/react";
 import axiosInstance from "../../services/axios";
 import {Text, VStack, Flex, Button, Box} from "@chakra-ui/react";
 import Image from "next/image";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 function Posts(props) {
   const [user, setUser] = useState(props.user);
@@ -52,7 +53,7 @@ function Posts(props) {
             <Text>{post.likes} likes</Text>
             <Text>Caption: {post.caption}</Text>
             <Button colorScheme="facebook" variant={"solid"} size="sm">
-              <a href="/postDetail"> Detail Post</a>
+              <a href={`/detailPost/${post.post_id}`}> Detail Post</a>
             </Button>
           </VStack>
         </Box>
@@ -76,7 +77,7 @@ function Posts(props) {
             marginLeft="75vH"
             width="32.9%"
           >
-            <a href="/postImage">Create a New Post! </a>
+            <a href="/createPost">Create a New Post! </a>
           </Button>
           <Flex textColor="white" flexDirection="column">
             {postMap}
