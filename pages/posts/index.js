@@ -33,7 +33,7 @@ function Posts(props) {
 
   if (userVerified) {
     const postMap = allPosts.map((post) => {
-      const completeImageURL = `http://localhost:2104${post.postImage}`;
+      const image = `http://localhost:2104${post.postImage}`;
       return (
         <Box
           width="70vH"
@@ -47,12 +47,12 @@ function Posts(props) {
         >
           <VStack marginY={3}>
             <Text marginBottom={1}>{post.username}</Text>
-            <Image src={completeImageURL} width={250} height={250} />
+            <Image src={image} width={250} height={250} />
             <Text>Created at: {post.createdAt.slice(0, 10)}</Text>
-            <Text>Likes: {post.likes}</Text>
+            <Text>{post.likes} likes</Text>
             <Text>Caption: {post.caption}</Text>
-            <Button colorScheme="blue" variant={"solid"}>
-              <a href="/postDetail"> Detail</a>
+            <Button colorScheme="facebook" variant={"solid"} size="sm">
+              <a href="/postDetail"> Detail Post</a>
             </Button>
           </VStack>
         </Box>
@@ -61,9 +61,15 @@ function Posts(props) {
 
     return (
       <>
-        <Flex bg="blue.900" height="auto" width="100%" direction="column">
+        <Flex
+          height="auto"
+          width="100%"
+          direction="column"
+          backgroundImage="url('universe.jpg')"
+          backgroundSize={500}
+        >
           <Button
-            colorScheme="blue"
+            colorScheme="facebook"
             variant={"solid"}
             marginTop={2}
             marginBottom={1}
@@ -80,14 +86,20 @@ function Posts(props) {
     );
   } else {
     return (
-      <Flex bg="blue.900" height="89vH" width="100%">
+      <Flex
+        bg="blue.900"
+        height="89vH"
+        width="100%"
+        backgroundImage="url('twitlitehomewallpaper.jpg')"
+        backgroundSize={1370}
+      >
         <Flex textColor="white">
           <Box
             width="100vH"
             borderRadius={6}
             marginLeft="60vH"
-            marginTop="15vH"
-            marginBottom="44vH"
+            marginTop="25vH"
+            marginBottom="35vH"
             border="1px"
             borderColor="gray.800"
             background="gray.800"

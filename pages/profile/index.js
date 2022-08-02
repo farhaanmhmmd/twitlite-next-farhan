@@ -117,14 +117,12 @@ function Profile(props) {
   if (!userVerified) {
     return (
       <>
-        <Flex>
-          <Flex
-            bg="blue.900"
-            width="700px"
-            height="89vH"
-            direction="column"
-            textColor="white"
-          >
+        <Flex
+          height="89vH"
+          backgroundImage="url('twitlitehomewallpaper.jpg')"
+          backgroundSize={1370}
+        >
+          <Flex width="700px" direction="column" textColor="white">
             <Box
               width="60vH"
               borderRadius={12}
@@ -138,13 +136,17 @@ function Profile(props) {
                 <Image src={imgSource} width={200} height={200} />
                 <input type={"file"} onChange={onFileChange} />
                 <Button
-                  colorScheme="blue"
+                  colorScheme="facebook"
                   variant={"solid"}
                   onClick={onSaveButton}
                 >
                   Save
                 </Button>
-                <Button colorScheme="blue" variant={"solid"} onClick={onOpen}>
+                <Button
+                  colorScheme="facebook"
+                  variant={"solid"}
+                  onClick={onOpen}
+                >
                   Edit Profile
                 </Button>
                 <EditProfile
@@ -156,13 +158,7 @@ function Profile(props) {
               </VStack>
             </Box>
           </Flex>
-          <Flex
-            bg="blue.900"
-            width="700px"
-            height="89vH"
-            direction="column"
-            textColor="white"
-          >
+          <Flex width="700px" direction="column" textColor="white">
             <Box
               width="60vH"
               borderRadius={12}
@@ -183,7 +179,7 @@ function Profile(props) {
               </VStack>
               <VStack marginY={2} alignContent="center">
                 <Button
-                  colorScheme="blue"
+                  colorScheme="facebook"
                   variant={"solid"}
                   size="xs"
                   isLoading={isEmailVerifProcess}
@@ -200,14 +196,12 @@ function Profile(props) {
   } else {
     return (
       <>
-        <Flex>
-          <Flex
-            bg="blue.900"
-            width="700px"
-            height="89vH"
-            direction="column"
-            textColor="white"
-          >
+        <Flex
+          height="89vH"
+          backgroundImage="url('twitlitehomewallpaper.jpg')"
+          backgroundSize={1370}
+        >
+          <Flex width="700px" direction="column" textColor="white">
             <Box
               width="60vH"
               borderRadius={12}
@@ -221,13 +215,17 @@ function Profile(props) {
                 <Image src={imgSource} width={200} height={200} />
                 <input type={"file"} onChange={onFileChange} />
                 <Button
-                  colorScheme="blue"
+                  colorScheme="facebook"
                   variant={"solid"}
                   onClick={onSaveButton}
                 >
                   Save
                 </Button>
-                <Button colorScheme="blue" variant={"solid"} onClick={onOpen}>
+                <Button
+                  colorScheme="facebook"
+                  variant={"solid"}
+                  onClick={onOpen}
+                >
                   Edit Profile
                 </Button>
                 <EditProfile
@@ -239,13 +237,7 @@ function Profile(props) {
               </VStack>
             </Box>
           </Flex>
-          <Flex
-            bg="blue.900"
-            width="700px"
-            height="89vH"
-            direction="column"
-            textColor="white"
-          >
+          <Flex width="700px" direction="column" textColor="white">
             <Box
               width="60vH"
               borderRadius={12}
