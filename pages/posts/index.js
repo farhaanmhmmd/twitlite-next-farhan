@@ -46,12 +46,23 @@ function Posts(props) {
           borderColor="gray.800"
           background="gray.800"
         >
-          <VStack marginY={3}>
-            <Text marginBottom={1}>{post.username}</Text>
+          <VStack marginY={3} alignItems="left" marginX={8}>
+            <Text fontWeight={700} fontSize={18} marginBottom={3}>
+              {post.username}
+            </Text>
             <Image src={image} width={250} height={250} />
-            <Text>Created at: {post.createdAt.slice(0, 10)}</Text>
-            <Text>{post.likes} likes</Text>
-            <Text>Caption: {post.caption}</Text>
+            <VStack
+              alignItems="end"
+              fontSize={12}
+              marginRight={6}
+              marginTop={2}
+            >
+              <Text>Created at: {post.createdAt.slice(0, 10)}</Text>
+            </VStack>
+            <Text fontSize={15}>{post.likes} likes </Text>
+            <Text fontSize={16}>Caption: {post.caption}</Text>
+          </VStack>
+          <VStack marginTop={4} marginBottom={4}>
             <Button colorScheme="facebook" variant={"solid"} size="sm">
               <a href={`/detailPost/${post.post_id}`}> Detail Post</a>
             </Button>
@@ -66,7 +77,7 @@ function Posts(props) {
           height="auto"
           width="100%"
           direction="column"
-          backgroundImage="url('universe.jpg')"
+          backgroundImage="url('/universe.jpg')"
           backgroundSize={500}
         >
           <Button
@@ -75,7 +86,7 @@ function Posts(props) {
             marginTop={2}
             marginBottom={1}
             marginLeft="75vH"
-            width="32.9%"
+            width="33.2%"
           >
             <a href="/createPost">Create a New Post! </a>
           </Button>
@@ -91,7 +102,7 @@ function Posts(props) {
         bg="blue.900"
         height="89vH"
         width="100%"
-        backgroundImage="url('twitlitehomewallpaper.jpg')"
+        backgroundImage="url('/twitlitehomewallpaper.jpg')"
         backgroundSize={1370}
       >
         <Flex textColor="white">

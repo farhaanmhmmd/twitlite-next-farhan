@@ -156,6 +156,13 @@ function Navigation() {
                     </Text>
                   </Link>
                 </NextLink> */}
+                <NextLink href="/profile">
+                  <Link>
+                    <Text ml="5" fontSize="lg" color="blue.300" my={4}>
+                      Profile
+                    </Text>
+                  </Link>
+                </NextLink>
                 <Link>
                   <Text
                     ml="4vH"
@@ -167,14 +174,6 @@ function Navigation() {
                     Logout
                   </Text>
                 </Link>
-                <NextLink href="/profile">
-                  <Link>
-                    <Text ml="5" fontSize="lg" color="blue.300" my={4}>
-                      Profile
-                      {/* {session?.user.username} */}
-                    </Text>
-                  </Link>
-                </NextLink>
               </>
             )}
           </Flex>

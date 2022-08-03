@@ -90,8 +90,10 @@ function Profile(props) {
       await axiosInstance.patch("/users", body, config);
 
       alert("Update Profile Success");
-      const URI = `/users/profile/${user_id}`;
-      const resGetUserProfile = await axiosInstance.get(URI, config);
+      const resGetUserProfile = await axiosInstance.get(
+        `/users/profile/${user_id}`,
+        config
+      );
 
       setUser(resGetUserProfile.data.data.result);
     } catch (error) {
@@ -126,34 +128,37 @@ function Profile(props) {
               width="60vH"
               borderRadius={12}
               marginLeft="50vH"
-              marginY="10vH"
+              marginY="6vH"
               border="1px"
               borderColor="gray.800"
               background="gray.800"
+              padding={5}
             >
-              <VStack marginY={4}>
-                <Image src={imgSource} width={200} height={200} />
+              <VStack
+                marginLeft={4}
+                marginBottom={3}
+                alignItems="left"
+                fontWeight={700}
+                fontSize="xl"
+              >
+                <Text>Profile Picture</Text>
+              </VStack>
+              <VStack paddingBottom={3}>
+                <Image src={imgSource} width={275} height={275} />
+              </VStack>
+              <VStack marginLeft={4} paddingBottom={3}>
                 <input type={"file"} onChange={onFileChange} />
+              </VStack>
+              <VStack>
                 <Button
                   colorScheme="facebook"
                   variant={"solid"}
                   onClick={onSaveButton}
+                  size="sm"
+                  padding={3}
                 >
-                  Save
+                  Change Profile Picture
                 </Button>
-                <Button
-                  colorScheme="facebook"
-                  variant={"solid"}
-                  onClick={onOpen}
-                >
-                  Edit Profile
-                </Button>
-                <EditProfile
-                  isOpen={isOpen}
-                  onClose={onClose}
-                  userProfile={userProfile}
-                  onSaveProfileUpdate={onSaveProfileUpdate}
-                />
               </VStack>
             </Box>
           </Flex>
@@ -165,27 +170,56 @@ function Profile(props) {
               border="1px"
               borderColor="gray.800"
               background="gray.800"
-              marginTop="23vH"
+              marginTop="16vH"
+              padding={5}
             >
+              <VStack
+                alignItems="left"
+                textColor="white"
+                marginLeft={3}
+                marginBottom={2}
+                fontWeight={700}
+                fontSize="xl"
+              >
+                <Text>User Profile</Text>
+              </VStack>
               <VStack alignItems="left" textColor="white" marginLeft={3}>
                 <Text>Username : {username}</Text>
                 <Text>Email : {email}</Text>
-                <Text>Bio : {bio}</Text>
                 <Text>
                   Full Name : {firstName} {lastName}
                 </Text>
                 <Text>Gender : {gender}</Text>
-              </VStack>
-              <VStack marginY={2} alignContent="center">
-                <Button
-                  colorScheme="facebook"
-                  variant={"solid"}
-                  size="xs"
-                  isLoading={isEmailVerifProcess}
-                  onClick={() => onSendEmailButton(user)}
-                >
-                  Send Email Verification
-                </Button>
+                <Text>Bio : {bio}</Text>
+                <VStack paddingTop={2}>
+                  <Button
+                    colorScheme="facebook"
+                    variant={"solid"}
+                    onClick={onOpen}
+                    size="sm"
+                    width={100}
+                    alignSelf="center"
+                  >
+                    Edit Profile
+                  </Button>
+                  <EditProfile
+                    isOpen={isOpen}
+                    onClose={onClose}
+                    userProfile={userProfile}
+                    onSaveProfileUpdate={onSaveProfileUpdate}
+                  />
+                </VStack>
+                <VStack paddingTop={2} alignContent="center">
+                  <Button
+                    colorScheme="facebook"
+                    variant={"solid"}
+                    size="sm"
+                    isLoading={isEmailVerifProcess}
+                    onClick={() => onSendEmailButton(user)}
+                  >
+                    Send Email Verification
+                  </Button>
+                </VStack>
               </VStack>
             </Box>
           </Flex>
@@ -205,34 +239,37 @@ function Profile(props) {
               width="60vH"
               borderRadius={12}
               marginLeft="50vH"
-              marginY="10vH"
+              marginY="6vH"
               border="1px"
               borderColor="gray.800"
               background="gray.800"
+              padding={5}
             >
-              <VStack marginY={4}>
-                <Image src={imgSource} width={200} height={200} />
+              <VStack
+                marginLeft={4}
+                marginBottom={3}
+                alignItems="left"
+                fontWeight={700}
+                fontSize="xl"
+              >
+                <Text>Profile Picture</Text>
+              </VStack>
+              <VStack paddingBottom={3}>
+                <Image src={imgSource} width={275} height={275} />
+              </VStack>
+              <VStack marginLeft={4} paddingBottom={3}>
                 <input type={"file"} onChange={onFileChange} />
+              </VStack>
+              <VStack>
                 <Button
                   colorScheme="facebook"
                   variant={"solid"}
                   onClick={onSaveButton}
+                  size="sm"
+                  padding={3}
                 >
-                  Save
+                  Change Profile Picture
                 </Button>
-                <Button
-                  colorScheme="facebook"
-                  variant={"solid"}
-                  onClick={onOpen}
-                >
-                  Edit Profile
-                </Button>
-                <EditProfile
-                  isOpen={isOpen}
-                  onClose={onClose}
-                  userProfile={userProfile}
-                  onSaveProfileUpdate={onSaveProfileUpdate}
-                />
               </VStack>
             </Box>
           </Flex>
@@ -244,16 +281,45 @@ function Profile(props) {
               border="1px"
               borderColor="gray.800"
               background="gray.800"
-              marginTop="23vH"
+              marginTop="19vH"
+              padding={5}
             >
+              <VStack
+                alignItems="left"
+                textColor="white"
+                marginLeft={3}
+                marginBottom={2}
+                fontWeight={700}
+                fontSize="xl"
+              >
+                <Text>User Profile</Text>
+              </VStack>
               <VStack alignItems="left" textColor="white" marginLeft={3}>
                 <Text>Username : {username}</Text>
                 <Text>Email : {email}</Text>
-                <Text>Bio : {bio}</Text>
                 <Text>
                   Full Name : {firstName} {lastName}
                 </Text>
                 <Text>Gender : {gender}</Text>
+                <Text>Bio : {bio}</Text>
+                <VStack paddingTop={2}>
+                  <Button
+                    colorScheme="facebook"
+                    variant={"solid"}
+                    onClick={onOpen}
+                    size="sm"
+                    width={100}
+                    alignSelf="center"
+                  >
+                    Edit Profile
+                  </Button>
+                  <EditProfile
+                    isOpen={isOpen}
+                    onClose={onClose}
+                    userProfile={userProfile}
+                    onSaveProfileUpdate={onSaveProfileUpdate}
+                  />
+                </VStack>
               </VStack>
             </Box>
           </Flex>
@@ -276,8 +342,7 @@ export async function getServerSideProps(context) {
     };
 
     const user_id = session.user.user_id;
-    const URI = `/users/profile/${user_id}`;
-    const res = await axiosInstance.get(URI, config);
+    const res = await axiosInstance.get(`/users/profile/${user_id}`, config);
 
     return {
       props: {user: res.data.data.result, session},

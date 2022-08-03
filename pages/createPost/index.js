@@ -61,7 +61,7 @@ function createPost(props) {
       bg="blue.900"
       height="89vH"
       width="100%"
-      backgroundImage="url('twitlitehomewallpaper.jpg')"
+      backgroundImage="url('/twitlitehomewallpaper.jpg')"
       backgroundSize={1370}
     >
       <Flex textColor="white">
@@ -70,17 +70,21 @@ function createPost(props) {
           borderRadius={20}
           marginLeft="75vH"
           marginTop="6vH"
-          marginBottom="7vH"
+          marginBottom="6vH"
           border="1px"
           borderColor="gray.800"
           background="gray.800"
-          padding={8}
+          padding={6}
+          paddingTop={3}
         >
+          <VStack textAlign="left">
+            <FormLabel>Choose an Image</FormLabel>
+          </VStack>
           <VStack>
             <Image src={imgSource} width={200} height={200} />
             <input onChange={onChooseImage} type={"file"} />
             <FormControl>
-              <FormLabel marginTop={2}>Write a Caption</FormLabel>
+              <FormLabel marginTop={2}>Write a Caption!</FormLabel>
               <Input
                 marginBottom={2}
                 type="text"
