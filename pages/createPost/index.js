@@ -32,7 +32,7 @@ function createPost(props) {
 
       const body = new FormData();
 
-      body.append("newPosts", image);
+      body.append("createPost", image);
       body.append("caption", caption);
 
       const config = {
@@ -41,7 +41,7 @@ function createPost(props) {
       };
 
       const resCreateNewPost = await axiosInstance.post(
-        `/posts/newPosts/${user_id}`,
+        `/posts/createPost/${user_id}`,
         body,
         config
       );
