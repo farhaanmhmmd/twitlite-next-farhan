@@ -34,13 +34,13 @@ function Post(props) {
   return (
     <Flex
       height="auto"
-      backgroundImage="url('/twitlitehomewallpaper.jpg')"
-      backgroundSize={1370}
+      backgroundImage="url('/universe.jpg')"
+      backgroundSize={500}
     >
       <Box
-        width="60vH"
+        width="78vH"
         borderRadius={12}
-        marginLeft="81vH"
+        marginLeft="72vH"
         marginY="4vH"
         border="1px"
         borderColor="gray.800"
@@ -56,7 +56,7 @@ function Post(props) {
         <VStack>
           <Image
             src={`http://localhost:2104${postImage}`}
-            width={300}
+            width={400}
             height={300}
           />
         </VStack>

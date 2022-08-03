@@ -61,8 +61,8 @@ function createPost(props) {
       bg="blue.900"
       height="89vH"
       width="100%"
-      backgroundImage="url('/twitlitehomewallpaper.jpg')"
-      backgroundSize={1370}
+      backgroundImage="url('/universe.jpg')"
+      backgroundSize={500}
     >
       <Flex textColor="white">
         <Box

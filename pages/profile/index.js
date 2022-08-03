@@ -217,7 +217,7 @@ function Profile(props) {
                     isLoading={isEmailVerifProcess}
                     onClick={() => onSendEmailButton(user)}
                   >
-                    Send Email Verification
+                    Resend Email Verification
                   </Button>
                 </VStack>
               </VStack>
