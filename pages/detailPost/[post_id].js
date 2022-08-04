@@ -17,7 +17,7 @@ function Post(props) {
     isVerified,
   };
 
-  const {post_id, username, postImage, createdAt, caption} = post;
+  const {post_id, username, postImage, createdAt, caption, likes} = post;
 
   const userVerified = userProfile.isVerified;
   if (userVerified) {
@@ -42,7 +42,11 @@ function Post(props) {
     }
   }
 
-  console.log(post_id);
+  async function onLikelick() {
+    const likeData = {user_id, post_id};
+
+    const resAddLike = await axiosInstance.post(`/likes/addLike`, likeData);
+  }
 
   return (
     <Flex
@@ -81,7 +85,7 @@ function Post(props) {
             <Button
               colorScheme="pink"
               variant={"solid"}
-              // onClick={onLikelick}
+              onClick={onLikelick}
               size="xs"
               padding={3}
               fontSize={18}
@@ -89,7 +93,7 @@ function Post(props) {
             >
               ♥
             </Button>
-            <Text fontSize={14}>0 likes </Text>
+            <Text fontSize={14}>{likes} likes </Text>
           </HStack>
           <Text fontSize={15}>Caption: {caption}</Text>
           {/* <HStack paddingBottom={4} alignItems="left" fontSize={15}>
