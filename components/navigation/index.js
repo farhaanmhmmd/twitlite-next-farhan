@@ -135,14 +135,14 @@ function Navigation() {
                       w="100%"
                     >
                       Login
-                    </Text>{" "}
+                    </Text>
                   </Link>
                 </NextLink>
                 <NextLink href="/register">
                   <Link>
                     <Text mx="3" fontSize="lg" color="blue.300" my={4} w="100%">
                       Register
-                    </Text>{" "}
+                    </Text>
                   </Link>
                 </NextLink>
               </>
