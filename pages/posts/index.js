@@ -57,7 +57,7 @@ function Posts(props) {
               marginRight={6}
               marginTop={2}
             >
-              <Text>Created at: {post.createdAt.slice(0, 10)}</Text>
+              <Text>Posted at: {post.createdAt.slice(0, 10)}</Text>
             </VStack>
             <Text fontSize={15}>{post.likes} likes </Text>
             <Text fontSize={16}>Caption: {post.caption}</Text>

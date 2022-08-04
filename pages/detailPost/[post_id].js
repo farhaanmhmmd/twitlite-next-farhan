@@ -61,7 +61,7 @@ function Post(props) {
           />
         </VStack>
         <VStack alignItems="end" fontSize={12} marginRight={6} marginTop={2}>
-          <Text>Created at: {createdAt.slice(0, 10)}</Text>
+          <Text>Posted at: {createdAt.slice(0, 10)}</Text>
         </VStack>
         <VStack alignItems="left" marginLeft={6} marginTop={2}>
           <Text fontSize={14}>likes </Text>
