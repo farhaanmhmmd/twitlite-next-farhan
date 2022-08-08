@@ -1,7 +1,16 @@
 import React, {useState} from "react";
 import {getSession} from "next-auth/react";
 import axiosInstance from "../../services/axios";
-import {Text, HStack, VStack, Flex, Box, Button} from "@chakra-ui/react";
+import {
+  Text,
+  HStack,
+  VStack,
+  Flex,
+  Box,
+  Button,
+  FormControl,
+  Input,
+} from "@chakra-ui/react";
 import Image from "next/image";
 import {useRouter} from "next/router";
 
@@ -43,10 +52,28 @@ function Post(props) {
   }
 
   async function onLikelick() {
-    const likeData = {user_id, post_id};
+    const likesCount = {user_id, post_id};
 
-    const resAddLike = await axiosInstance.post(`/likes/addLike`, likeData);
+    const resAddLike = await axiosInstance.post(`/likes/addLike`, likesCount);
   }
+
+  async function addComment() {
+    const commentPost = document.getElementById("commentPost").value;
+    const addComment = {user_id, commentPost};
+
+    const resAddLike = await axiosInstance.post(
+      `/comments/${post.post_id}`,
+      addComment
+    );
+  }
+
+  const listComments = post.comments.map((postComment) => {
+    return (
+      <Text>
+        {post.username}: {postComment.commentPost}
+      </Text>
+    );
+  });
 
   return (
     <Flex
@@ -96,10 +123,30 @@ function Post(props) {
             <Text fontSize={14}>{likes} likes </Text>
           </HStack>
           <Text fontSize={15}>Caption: {caption}</Text>
-          {/* <HStack paddingBottom={4} alignItems="left" fontSize={15}>
-              <Text>Comments:</Text>
-            </HStack> */}
-          <HStack paddingBottom={3} paddingTop={1} paddingLeft={240}>
+          <VStack alignItems="left" fontSize={15}>
+            <Text>Comments:</Text>
+          </VStack>
+          <VStack alignItems="left" fontSize={14}>
+            {listComments}
+          </VStack>
+
+          <VStack paddingTop={2}>
+            <FormControl>
+              <HStack marginBottom={4}>
+                <Input
+                  placeholder="Add Comment!"
+                  size="sm"
+                  width={340}
+                  type="text"
+                  id="commentPost"
+                />
+                <Button size="xs" colorScheme="facebook" onClick={addComment}>
+                  Submit
+                </Button>
+              </HStack>
+            </FormControl>
+          </VStack>
+          <HStack paddingBottom={4} paddingTop={1} paddingLeft={240}>
             <Button
               colorScheme="facebook"
               variant={"solid"}
