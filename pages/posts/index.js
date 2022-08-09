@@ -60,7 +60,7 @@ function Posts(props) {
               <Text>Posted at: {post.createdAt.slice(0, 10)}</Text>
             </VStack>
             <Text fontSize={15}>{post.likes} likes </Text>
-            <Text fontSize={16}>Caption: {post.caption}</Text>
+            <Text fontSize={15}>Caption: {post.caption}</Text>
           </VStack>
           <VStack marginTop={4} marginBottom={4}>
             <Button colorScheme="facebook" variant={"solid"} size="sm">

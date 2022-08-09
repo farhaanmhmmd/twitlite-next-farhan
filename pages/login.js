@@ -7,11 +7,15 @@ import {
   Box,
   InputRightElement,
   ChakraProvider,
+  Link,
+  Text,
+  VStack,
 } from "@chakra-ui/react";
 import React, {useState} from "react";
 import {signIn} from "next-auth/react";
 import {useRouter} from "next/router";
 import Image from "next/image";
+import NextLink from "next/link";
 
 function Login() {
   const router = useRouter();
@@ -112,6 +116,13 @@ function Login() {
             >
               Login
             </Button>
+            <NextLink href="/register">
+              <Link>
+                <VStack textColor="white" paddingTop={4} fontSize={13}>
+                  <Text>Don't have an account yet? Register here!</Text>
+                </VStack>
+              </Link>
+            </NextLink>
           </Flex>
         </Flex>
       </Flex>

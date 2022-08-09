@@ -75,6 +75,22 @@ function Post(props) {
     );
   });
 
+  async function editCaption() {
+    try {
+      const editCaptipn = document.getElementById("editCaption").value;
+      const reqBody = {
+        caption: editCaptipn,
+        post_id: post.post_id,
+      };
+      const res = await axiosInstance.patch("/posts/caption", reqBody);
+
+      alert(res.data.message);
+    } catch (error) {
+      console.log({Error});
+      alert(error.response.data.message);
+    }
+  }
+
   return (
     <Flex
       height="auto"
@@ -123,16 +139,35 @@ function Post(props) {
             <Text fontSize={14}>{likes} likes </Text>
           </HStack>
           <Text fontSize={15}>Caption: {caption}</Text>
+          <FormControl>
+            <HStack marginBottom={4}>
+              <Input
+                placeholder="Edit Caption"
+                size="xs"
+                width={340}
+                type="text"
+                id="editCaption"
+                borderColor="gray.800"
+              />
+              <Button
+                size="xs"
+                colorScheme="facebook"
+                variant="outline"
+                onClick={editCaption}
+              >
+                Submit
+              </Button>
+            </HStack>
+          </FormControl>
           <VStack alignItems="left" fontSize={15}>
             <Text>Comments:</Text>
           </VStack>
           <VStack alignItems="left" fontSize={14}>
             {listComments}
           </VStack>
-
-          <VStack paddingTop={2}>
+          <VStack>
             <FormControl>
-              <HStack marginBottom={4}>
+              <HStack marginBottom={6}>
                 <Input
                   placeholder="Add Comment!"
                   size="sm"
@@ -140,26 +175,21 @@ function Post(props) {
                   type="text"
                   id="commentPost"
                 />
-                <Button size="xs" colorScheme="facebook" onClick={addComment}>
+                <Button
+                  size="xs"
+                  colorScheme="facebook"
+                  onClick={addComment}
+                  variant="solid"
+                >
                   Submit
                 </Button>
               </HStack>
             </FormControl>
           </VStack>
-          <HStack paddingBottom={4} paddingTop={1} paddingLeft={240}>
+          <HStack paddingBottom={4} paddingTop={1} paddingLeft={320}>
             <Button
-              colorScheme="facebook"
-              variant={"solid"}
-              // onClick={onEditClick}
-              size="xs"
-              padding={3}
-              textColor="white"
-            >
-              Edit Post
-            </Button>
-            <Button
-              colorScheme="facebook"
-              variant={"solid"}
+              colorScheme="red"
+              variant="solid"
               onClick={onDeleteClick}
               size="xs"
               padding={3}
